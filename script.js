@@ -15,6 +15,13 @@ function showScoreUpdate() {
   );
 }
 
+function resetGame() {
+  let playAgain = confirm("Play again?");
+  if (playAgain) {
+    window.location.reload();
+  }
+}
+
 function showPlayerLose(humanChoice, computerChoice) {
   console.log("Nice try! User loses!");
   console.log(
@@ -98,6 +105,7 @@ function playGame() {
   while (playerScore < 5 || computerScore < 5) {
     if (playerScore === 5 || computerScore === 5) {
       showGameOver();
+      resetGame();
       break;
     }
     const humanSelection = getHumanChoice();
