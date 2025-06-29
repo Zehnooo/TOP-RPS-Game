@@ -6,6 +6,27 @@ let computerScore = 0;
 let computerChoice;
 let humanChoice;
 
+function showScoreUpdate() {
+    console.log(
+        "Round completed! The new scores are: \n User Score: " + playerScore + " " + "Computer score: " + computerScore + "."
+    );
+}
+
+function showPlayerLose(humanChoice, computerChoice) {
+    console.log("Nice try! User loses!");
+        console.log(
+            "user choice was: " + humanChoice + " " +
+            "computer choice was: " + computerChoice
+        );
+}
+
+function showPlayerWin(humanChoice, computerChoice) {
+    console.log("Congrats! User wins!");
+        console.log(
+            "user choice was: " + humanChoice + " " +
+            "computer choice was: " + computerChoice
+        );
+}
 function getComputerChoice() {
     const randNum = Math.floor(Math.random() * 3);
     const computerChoice = choices[randNum];
@@ -19,7 +40,8 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  
+    
+    // Tie round
     if (humanChoice === computerChoice) {
         alert("Tie! No points awarded");
           console.log(
@@ -32,23 +54,23 @@ function playRound(humanChoice, computerChoice) {
     if ((humanChoice === 'rock' && computerChoice === 'scissors')||
         (humanChoice === 'paper' && computerChoice === 'rock') ||
         (humanChoice === 'scissors' && computerChoice === 'paper')){
-        console.log("Congrats! Player wins!");
-        console.log(
-            "player choice was: " + humanChoice + " " +
-            "computer choice was: " + computerChoice
-        );
+        showPlayerWin(humanChoice, computerChoice);
+        playerScore++;
+        showScoreUpdate();
     }
     
     // Player loses
      if ((humanChoice === 'scissors' && computerChoice === 'rock')||
         (humanChoice === 'rock' && computerChoice === 'paper') ||
         (humanChoice === 'paper' && computerChoice === 'scissors')){
-        console.log("Nice try! Player loses!");
-        console.log(
-            "player choice was: " + humanChoice + " " +
-            "computer choice was: " + computerChoice
-        );
+         showPlayerLose(humanChoice, computerChoice);
+         computerScore++
+         showScoreUpdate();
     }
+}
+
+function playGame() {
+    
 }
 
 const humanSelection = getHumanChoice();
