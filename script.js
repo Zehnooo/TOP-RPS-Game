@@ -90,10 +90,8 @@ function playRound(humanChoice, computerChoice) {
         "computer choice was: " +
         computerChoice
     );
-  }
-
-  // Player Wins
-  if (
+  } else if (
+    // Player Wins
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
@@ -101,10 +99,8 @@ function playRound(humanChoice, computerChoice) {
     showPlayerWin(humanChoice, computerChoice);
     playerScore++;
     showScoreUpdate();
-  }
-
-  // Player loses
-  if (
+  } else if (
+    // Player loses
     (humanChoice === "scissors" && computerChoice === "rock") ||
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "scissors")
