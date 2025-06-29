@@ -18,7 +18,9 @@ function showScoreUpdate() {
 function resetGame() {
   let playAgain = confirm("Play again?");
   if (playAgain) {
-    window.location.reload();
+    playerScore = 0;
+    computerScore = 0;
+    playGame();
   }
 }
 
@@ -102,17 +104,13 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  while (playerScore < 5 || computerScore < 5) {
-    if (playerScore === 5 || computerScore === 5) {
-      showGameOver();
-      resetGame();
-      break;
-    }
+  while (playerScore < 5 && computerScore < 5) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-
     playRound(humanSelection, computerSelection);
   }
+  showGameOver();
+  resetGame();
 }
 
 playGame();
