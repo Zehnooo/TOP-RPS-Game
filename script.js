@@ -3,7 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 let computerChoice;
 let humanChoice;
-
+console.log("Script is running");
 function showScoreUpdate() {
   console.log(
     "Round completed! The new scores are: \n User Score: " +
@@ -66,11 +66,10 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let humanChoice = prompt("Enter 'rock', 'paper', or 'scissors'!");
-  if (!humanChoice) {
-    return;
+  if (humanChoice) {
+    humanChoice = humanChoice.trim().toLowerCase();
+    return humanChoice;
   }
-  humanChoice = humanChoice.trim().toLowerCase();
-  return humanChoice;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -112,6 +111,9 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
   while (playerScore < 5 && computerScore < 5) {
     const humanSelection = getHumanChoice();
+    if (humanSelection === undefined) {
+      return;
+    }
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
