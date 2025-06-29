@@ -63,6 +63,9 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   let humanChoice = prompt("Enter 'rock', 'paper', or 'scissors'!");
+  if (!humanChoice) {
+    return;
+  }
   humanChoice = humanChoice.trim().toLowerCase();
   return humanChoice;
 }
