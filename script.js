@@ -1,6 +1,6 @@
 console.log("hello wall!");
 
-let choices = ['Rock', 'Paper', 'Scissors'];
+let choices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice() {
     const randNum = Math.floor(Math.random() * 3);
