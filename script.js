@@ -53,11 +53,14 @@ function showPlayerWin(humanChoice, computerChoice) {
 
 function showGameOver() {
   console.log("Game Over!");
-  if (playerScore > computerScore) {
-    console.log(`Nice! User wins the game!`);
+  if (playerScore === computerScore) {
+    console.log(`Wow! Both players tied!`);
+    console.log(`User score ${playerScore} : ${computerScore} Computer score`);
+  } else if (computerScore > playerScore) {
+    console.log(`Darn. Computer wins the game!`);
     console.log(`User score ${playerScore} : ${computerScore} Computer score`);
   } else {
-    console.log(`Darn. Computer wins the game!`);
+    console.log(`Nice! User wins the game!`);
     console.log(`User score ${playerScore} : ${computerScore} Computer score`);
   }
 }
