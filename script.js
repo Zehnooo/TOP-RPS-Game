@@ -53,10 +53,12 @@ function showPlayerWin(humanChoice, computerChoice) {
 
 function showGameOver() {
   console.log("Game Over!");
-  if (playerScore === 5) {
-    console.log("Congrats! User won the game!");
+  if (playerScore > computerScore) {
+    console.log(`Nice! User wins the game!`);
+    console.log(`User score ${playerScore} : ${computerScore} Computer score`);
   } else {
-    console.log("Better luck next time! Computer won the game.");
+    console.log(`Darn. Computer wins the game!`);
+    console.log(`User score ${playerScore} : ${computerScore} Computer score`);
   }
 }
 
@@ -111,7 +113,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  while (playerScore < 5 && computerScore < 5) {
+  for (let round = 1; round <= 5; round++) {
+    console.log(`Round # ${round}`);
     const humanSelection = getHumanChoice();
     if (humanSelection === undefined) {
       return;
