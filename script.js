@@ -22,10 +22,36 @@ function playRound(humanChoice, computerChoice) {
   
     if (humanChoice === computerChoice) {
         alert("Tie! No points awarded");
+          console.log(
+            "player choice was: " + humanChoice + " " +
+            "computer choice was: " + computerChoice
+        );
+    }
+
+    // Player Wins
+    if ((humanChoice === 'rock' && computerChoice === 'scissors')||
+        (humanChoice === 'paper' && computerChoice === 'rock') ||
+        (humanChoice === 'scissors' && computerChoice === 'paper')){
+        console.log("Congrats! Player wins!");
+        console.log(
+            "player choice was: " + humanChoice + " " +
+            "computer choice was: " + computerChoice
+        );
+    }
+    
+    // Player loses
+     if ((humanChoice === 'scissors' && computerChoice === 'rock')||
+        (humanChoice === 'rock' && computerChoice === 'paper') ||
+        (humanChoice === 'paper' && computerChoice === 'scissors')){
+        console.log("Nice try! Player loses!");
+        console.log(
+            "player choice was: " + humanChoice + " " +
+            "computer choice was: " + computerChoice
+        );
     }
 }
 
-const humanSelection = getComputerChoice();
-const computerSelection = getHumanChoice();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
