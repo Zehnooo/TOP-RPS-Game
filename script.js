@@ -3,7 +3,9 @@ let playerScore = 0;
 let computerScore = 0;
 let computerChoice;
 let humanChoice;
+
 console.log("Script is running");
+
 function showScoreUpdate() {
   console.log(
     "Round completed! The new scores are: \n User Score: " +
