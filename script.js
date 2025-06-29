@@ -23,6 +23,7 @@ function resetGame() {
     playGame();
   } else {
     alert("Thanks for playing :)");
+    window.close();
   }
 }
 
