@@ -19,12 +19,13 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    const humanChoiceGame = getComputerChoice();
-    const computerChoiceGame = getHumanChoice();
-
-    if (humanChoiceGame === computerChoiceGame) {
+  
+    if (humanChoice === computerChoice) {
         alert("Tie! No points awarded");
     }
 }
 
-playRound();
+const humanSelection = getComputerChoice();
+const computerSelection = getHumanChoice();
+
+playRound(humanSelection, computerSelection);
