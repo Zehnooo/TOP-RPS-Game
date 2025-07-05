@@ -1,0 +1,252 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* CSS HEX */
+:root {
+  --background: #22223b;
+  --card: #4a4e69;
+  --text: #f2e9e4;
+  --accent: #495057;
+  --secondary: #c9ada7;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "Roboto", sans-serif;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.title,
+.game-display,
+.game-results,
+.match-result {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 50px;
+  margin: 30px auto;
+  max-width: 1000px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-radius: 8px;
+}
+
+.title {
+  padding: 50px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.game-display {
+  flex-direction: column;
+}
+
+.scoreboard {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 50px;
+  padding: 30px;
+  background: var(--accent);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  border: 2px solid var(--secondary);
+}
+
+.player-info,
+.computer-info,
+.round-info {
+  background: rgba(201, 173, 167, 0.3);
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: transform 0.4s ease-in-out;
+}
+
+.game-results {
+  gap: 10px;
+  padding: 10px;
+}
+
+.game-choices {
+  margin: 25px auto;
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 25px;
+  background: var(--accent);
+  padding: 25px;
+  border-radius: 8px;
+  border: 2px solid var(--secondary);
+  max-width: 500px;
+  width: 100%;
+}
+.game-choices svg {
+  transition: transform 0.2s ease-in-out;
+}
+.game-choices svg:hover {
+  transform: scale(1.2);
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.round-info {
+  transform: translateY(-25px);
+}
+
+.g-btn {
+  width: 100px;
+  height: auto;
+  background: none;
+  border: none;
+}
+.game-choices svg {
+  width: 100px;
+  height: 100px;
+}
+
+.round-winner {
+  transform: scale(1.2);
+  animation: blink 0.9s both;
+}
+
+.game-win {
+  color: limegreen;
+  animation: blink 0.9s both;
+}
+
+.game-lose {
+  color: red;
+  animation: blink 0.9s both;
+}
+
+.game-win,
+.game-lose {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.reset-btn {
+  color: var(--text);
+  background: rgba(201, 173, 167, 0.3);
+  border-radius: 8px;
+  border: 2px solid var(--secondary);
+  transition: transform 0.2s ease-in-out;
+  padding: 15px;
+  width: 125px;
+  text-wrap: nowrap;
+}
+
+.reset-btn:hover {
+  transform: scale(1.2);
+  background: rgba(201, 173, 167, 0.7);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
